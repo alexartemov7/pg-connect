@@ -12,6 +12,9 @@ const client = new Client( {
 // open connection
 await client.connect()
 // run query
-const time = await client.query('SELECT NOW()')
+const results = await client.query('SELECT * FROM customers')
+
+console.table(results.rows)
 console.log(time)
 // close connection
+client.end()
